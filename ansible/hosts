@@ -1,0 +1,16 @@
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+ansible_user=adminUsername
+ansible_become_password=5lz60DK79
+ansible_ssh_private_key_file=/home/e012822/.ssh/id_rsa
+ansible_os_family == RedHat
+
+[master]
+20.224.78.253 hostname=k8master
+
+[workers]
+20.229.107.150 hostname=k8worker1
+20.224.119.11 hostname=k8worker2
+
+[nfs]
+20.126.87.182 hostname=k8nfs

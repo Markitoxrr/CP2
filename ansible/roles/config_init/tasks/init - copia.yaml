@@ -1,0 +1,37 @@
+---
+
+- name: Actualizar paquetes
+  package:
+    name: "*"
+    state: latest
+
+- name: Asignar zona horaria Europe/Madrid
+  timezone:
+    name: Europe/Madrid
+
+- name: Instalar Chrony
+  package:
+    name: chrony
+    state: present
+
+- name: Setear ntp a true
+  command: /usr/bin/timedatectl set-ntp true
+
+- name: Habilitar Chrony e Iniciar Chrony
+  service:
+    name: chronyd
+    state: started
+    enabled: yes
+
+- name: Sincronizar hora manualmente
+  shell: chronyc sources
+
+- name: Deshabilitar SELinux
+  selinux:
+    state: disabled
+    
+- name: Install some packages needed to configure the nodes
+  package:
+    name: "{{ item }}"
+  loop:
+    - "{{ basic-packages }}"

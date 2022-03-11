@@ -1,0 +1,5 @@
+---
+
+- include_tasks: k8config_common.yaml
+- include_tasks: k8master.yaml
+- include_tasks: k8workers.yaml

@@ -1,0 +1,14 @@
+
+master_address : "20.224.78.253"
+worker01_address: "20.229.107.150"
+worker01_address: "20.224.119.11"
+
+pod_network_cidr: "192.169.0.0/16"
+
+workers_rule: 
+  - 'rule family=ipv4 source address=20.229.107.150/32 accept'  
+  - 'rule family=ipv4 source address=20.224.119.11/32 accept'  
+
+kube_perm_workers_rule: 'rule family=ipv4 source address=172.17.0.1/16 accept'
+
+files: ["jenkins-app.yaml","ingress.yaml","configmap.yaml"]

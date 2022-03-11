@@ -1,0 +1,7 @@
+credentials.tf
+credentials.tf.secret
+credentials.tf.clear
+terraform/credentials.tf
+terraform/credentials.tf.secret
+terraform/credentials.tf.clear
+.terraform*

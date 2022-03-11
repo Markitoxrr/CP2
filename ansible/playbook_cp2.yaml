@@ -1,0 +1,57 @@
+---
+
+- name: configuracion inicial
+  hosts: all
+  gather_facts: false
+  become: true
+  roles:
+    - config_init
+
+- name: instalar servidor NFS
+  hosts: nfs
+  gather_facts: false
+  become: true
+  roles:
+    - 'nfs'
+
+- name: configuracion para kubernetes
+  hosts: all
+  gather_facts: false
+  become: true
+  roles:
+    - k8config
+
+- name: configuracion kubernetes en master
+  hosts: master
+  gather_facts: false
+  become: true
+  roles:
+    - k8master
+
+- name: configuracion sdn azure
+  hosts: master
+  gather_facts: false
+  become: true
+  roles:
+     - sdn_azure    
+    
+- name: instalando ingress controller
+  hosts: master
+  gather_facts: false
+  become: true
+  roles:
+     - ingress_ctr
+
+- name: configurando kubernetes en workers
+  hosts: workers
+  gather_facts: false
+  become: true
+  roles:
+    - k8workers
+     
+- name: instalando app
+  hosts: master
+  gather_facts: false
+  become: true
+  roles:
+     - app
