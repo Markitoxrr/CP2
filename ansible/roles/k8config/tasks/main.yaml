@@ -88,14 +88,6 @@
     group: root
     mode: 0644
   become: true
-
-#- name: instalar paquetes rpm
-#  dnf:
-#    name: ['kubelet', 'kubeadm', 'kubectl']
-#    state: present
-#    disable_excludes: 'kubernetes'
-#  become: true
-  #when: ansible_os_family == "RedHat"
   
 - name: Instalar kubeadm, kubectl y kubelet
   command: 

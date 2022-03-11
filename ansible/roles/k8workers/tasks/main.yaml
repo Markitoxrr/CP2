@@ -24,4 +24,3 @@
 
 - name: Unir workers al cluster
   command: sh /tmp/kubernetes_join_command
-  #register: joiner_or_not
