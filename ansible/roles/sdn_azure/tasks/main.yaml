@@ -1,9 +1,5 @@
 ---
 
-- name: Copy file /etc/kubernetes/admin.conf
-  command:
-    cmd: "cp /etc/kubernetes/admin.conf $HOME/.kube/config"    
-    
 - name: Agregando puertos a firewall
   firewalld:
     port: "{{item}}"
